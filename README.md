@@ -21,6 +21,10 @@ Breaking Point Mod is a total conversion mod for Arma 3. Source is provided for 
 * These steps assume you already know how to setup/install a MySQL database and basic ArmA server yourself, so do this first.
 * Make sure you install the Visual C++ 2015 Redistributables from microsoft.
 	* https://www.microsoft.com/en-gb/download/details.aspx?id=48145
+* You will also need to own a copy of FireDaemon if you intend on the server running correctly with the automated restarts that are built in, otherwise your server will lock itself every 3 hours and need manually restarting, the restart times are at 3, 6, 9 and 12, AM to PM, local time to where your server is hosted.
+	* http://www.firedaemon.com/product/firedaemon-pro
+* Here is a guide to setting up ArmA 3 as a service in FireDaemon.
+	* https://kb.firedaemon.com/support/solutions/articles/4000086692-arma-3
 
 ## Configuration
 
@@ -59,6 +63,14 @@ Breaking Point Mod is a total conversion mod for Arma 3. Source is provided for 
 	database = breakingpointmod
 	username = root
 	password =
+	```
+* Whilst in the BreakingPointExt.ini, now is a good time to set your FireDaemon executable path, and service name.
+* Replace BPA3_1 with the name of the service you created using the FireDaemon guide linked above.
+* Replace the path with the full path to your FireDaemon.exe whereever you installed it (You have to use forward slashes as per the example for this to work correct or you will get issues).
+	```
+	[FIREDAEMON]
+	service = BPA3_1
+	path = C:/Program Files (x86)/FireDaemon/Firedaemon.exe
 	```
 * Open the config.cfg in ServerConfig directory and setup your instance, this is important to remember for each server you host.
 	```
